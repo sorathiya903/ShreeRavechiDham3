@@ -38,125 +38,94 @@
             color: #2b211b;
         }
 
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eee;
+}
 
-        /* =========================
-           HEADER
-        ========================= */
+.nav-container {
+    max-width: 1180px;
+    margin: auto;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: #222;
+}
 
-            background: rgba(255, 255, 255, 0.96);
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #f2e5d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8a542f;
+    font-size: 21px;
+}
 
-            border-bottom: 1px solid #eadbd0;
+.logo-text {
+    font-size: 19px;
+    font-weight: 700;
+}
 
-            backdrop-filter: blur(12px);
-        }
+.logo-text span {
+    display: block;
+    color: #a8612d;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
 
-        .navbar {
-            max-width: 1180px;
-            margin: auto;
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: 0.2s;
+}
 
-            padding: 17px 24px;
+.nav-links a:hover {
+    color: #a8612d;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+.nav-btn {
+    background: #754725;
+    color: white !important;
+    padding: 9px 17px;
+    border-radius: 8px;
+}
 
-            gap: 20px;
-        }
+.nav-btn:hover {
+    background: #5f381d;
+}
 
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            text-decoration: none;
-
-            color: #67391f;
-
-            font-size: 21px;
-            font-weight: 800;
-            letter-spacing: -0.3px;
-        }
-
-
-        .logo-mark {
-            width: 38px;
-            height: 38px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 11px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff8a00,
-                    #d35400
-                );
-
-            color: white;
-
-            font-size: 18px;
-
-            box-shadow:
-                0 5px 14px rgba(211, 84, 0, 0.25);
-        }
-
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-
-        nav a {
-            position: relative;
-
-            text-decoration: none;
-
-            color: #62554d;
-
-            font-size: 14px;
-            font-weight: 600;
-
-            transition: 0.2s;
-        }
-
-
-        nav a:hover {
-            color: #e26100;
-        }
-
-
-        nav a.active {
-            color: #d35400;
-        }
-
-
-        nav a.active::after {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            right: 0;
-            bottom: -8px;
-
-            height: 2px;
-
-            border-radius: 5px;
-
-            background: #e86b00;
-        }
+.menu-btn {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: #754725;
+}
 
 
         /* =========================
@@ -821,64 +790,31 @@
 
 
 <body>
+<header class="navbar">
+    <div class="nav-container">
 
+        <a href="#" class="logo">
+            <div class="logo-icon">🏠</div>
 
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-    <div class="navbar">
-
-        <a href="index.html" class="logo">
-
-            <span class="logo-mark">R</span>
-
-            <span>
+            <div class="logo-text">
                 Shree Ravechi Dham 3
-            </span>
-
+                <span>Our Community</span>
+            </div>
         </a>
 
-
-        <nav>
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="events.html">
-                Events
-            </a>
-
-            <a href="gallery.html">
-                Gallery
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="notices.html" class="active">
-                Notices
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-
+        <nav class="nav-links" id="navLinks">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/notice">Notices</a>
+            <a href="/events">Events</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/contact" class="nav-btn">Contact</a>
         </nav>
 
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
     </div>
-
 </header>
-
-
-
-<!-- =========================
-     HERO
-========================= -->
 
 <section class="hero">
 
