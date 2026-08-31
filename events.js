@@ -3,7 +3,7 @@ const events = [
         id: 1,
         title: "Janmasthami",
         date: "4 September 2026",
-        time: "11:00 AM",
+        time: "9:00 AM",
         location: "Ravachi Dham 3",
         image: "/static/images/janmasthami.jpg",
         description: "Janmasthami Celebration at Ravachi Dham 3."
