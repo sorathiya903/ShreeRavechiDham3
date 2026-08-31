@@ -1,0 +1,1381 @@
+
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Events | Shree Ravechi Dham 3</title>
+
+<meta name="description" content="Discover upcoming celebrations, community gatherings and events at Shree Ravechi Dham 3.">
+
+<style> * { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+color: #222;
+background: #fff;
+line-height: 1.6;
+overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+position: sticky;
+top: 0;
+z-index: 1000;
+background: rgba(255,255,255,0.96);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid #eee;
+}
+
+.nav-container {
+max-width: 1180px;
+margin: auto;
+padding: 16px 22px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 11px;
+text-decoration: none;
+color: #222;
+}
+
+.logo-icon {
+width: 40px;
+height: 40px;
+border-radius: 10px;
+background: #f2e5d9;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #8a542f;
+font-size: 21px;
+}
+
+.logo-text {
+font-size: 19px;
+font-weight: 700;
+}
+
+.logo-text span {
+display: block;
+color: #a8612d;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 27px;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #555;
+font-size: 14px;
+transition: color .25s ease;
+}
+
+.nav-links a:hover {
+color: #a8612d;
+}
+
+.nav-links a.active {
+color: #754725;
+font-weight: 700;
+}
+
+.nav-btn {
+background: #754725;
+color: white !important;
+padding: 9px 17px;
+border-radius: 8px;
+}
+
+.nav-btn:hover {
+background: #5f381d;
+}
+
+.menu-btn {
+display: none;
+border: none;
+background: none;
+font-size: 25px;
+cursor: pointer;
+color: #754725;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+position: relative;
+overflow: hidden;
+background:
+radial-gradient(circle at 85% 20%, rgba(198,132,82,.13), transparent 28%),
+radial-gradient(circle at 10% 80%, rgba(198,132,82,.08), transparent 25%),
+linear-gradient(120deg, #fffaf5 0%, #ffffff 55%, #fff4e9 100%);
+}
+
+.hero::before {
+content: "";
+position: absolute;
+width: 350px;
+height: 350px;
+border-radius: 50%;
+border: 1px solid rgba(168,97,45,.08);
+top: -180px;
+right: -100px;
+animation: floatCircle 8s ease-in-out infinite;
+}
+
+.hero::after {
+content: "";
+position: absolute;
+width: 180px;
+height: 180px;
+border-radius: 50%;
+border: 1px solid rgba(168,97,45,.08);
+bottom: -100px;
+left: -50px;
+}
+
+.hero-container {
+max-width: 1100px;
+min-height: 390px;
+margin: auto;
+padding: 75px 20px 90px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+position: relative;
+z-index: 1;
+}
+
+.hero-content {
+max-width: 760px;
+animation: heroReveal .8s ease both;
+}
+
+.hero-label {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+color: #a8612d;
+background: #fff0e2;
+padding: 7px 14px;
+border-radius: 30px;
+font-size: 12px;
+font-weight: 600;
+margin-bottom: 20px;
+}
+
+.hero h1 {
+font-size: clamp(42px, 6vw, 66px);
+line-height: 1.05;
+color: #2a211c;
+margin-bottom: 20px;
+letter-spacing: -1.8px;
+}
+
+.hero h1 span {
+color: #8a542f;
+}
+
+.hero p {
+max-width: 650px;
+margin: auto;
+color: #666;
+font-size: 17px;
+}
+
+/* ================= EVENT SECTION ================= */
+
+.events-section {
+background: #fff;
+}
+
+.section {
+max-width: 1100px;
+margin: auto;
+padding: 85px 20px;
+}
+
+.section-heading {
+text-align: center;
+margin-bottom: 45px;
+}
+
+.section-heading .small {
+color: #b16a35;
+text-transform: uppercase;
+letter-spacing: 2px;
+font-size: 11px;
+font-weight: bold;
+}
+
+.section-heading h2 {
+font-size: 34px;
+color: #2d241f;
+margin-top: 7px;
+}
+
+.section-heading p {
+color: #777;
+max-width: 580px;
+margin: 9px auto 0;
+font-size: 14px;
+}
+
+/* ================= EVENT GRID ================= */
+
+.events {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 22px;
+}
+
+/* ================= EVENT CARD ================= */
+
+.event {
+position: relative;
+border: 1px solid #eee4dc;
+border-radius: 18px;
+overflow: hidden;
+background: #fff;
+transition:
+transform .35s cubic-bezier(.2,.8,.2,1),
+box-shadow .35s ease,
+border-color .35s ease;
+opacity: 0;
+transform: translateY(25px);
+animation: cardReveal .65s ease forwards;
+}
+
+.event:hover {
+transform: translateY(-8px);
+border-color: #ead4c1;
+box-shadow: 0 18px 45px rgba(80,50,30,.12);
+}
+
+.event.featured {
+border-color: #d9b08e;
+box-shadow: 0 10px 35px rgba(117,71,37,.10);
+}
+
+.event.featured::before {
+content: "UPCOMING";
+position: absolute;
+z-index: 5;
+top: 15px;
+left: 15px;
+background: #754725;
+color: white;
+padding: 6px 10px;
+border-radius: 20px;
+font-size: 9px;
+font-weight: bold;
+letter-spacing: 1px;
+}
+
+/* Image */
+
+.event-image {
+height: 215px;
+overflow: hidden;
+position: relative;
+background: #f4ebe4;
+}
+
+.event-image::after {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(
+to top,
+rgba(30,20,15,.35),
+transparent 45%
+);
+opacity: .5;
+transition: opacity .3s ease;
+}
+
+.event:hover .event-image::after {
+opacity: .2;
+}
+
+.event-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+transition:
+transform .6s cubic-bezier(.2,.8,.2,1),
+filter .4s ease;
+}
+
+.event:hover .event-image img {
+transform: scale(1.08);
+filter: saturate(1.08);
+}
+
+/* Body */
+
+.event-body {
+padding: 20px;
+}
+
+.event-date {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+color: #a8612d;
+font-size: 11px;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: .5px;
+}
+
+.event h3 {
+font-size: 19px;
+color: #2d241f;
+margin: 7px 0 7px;
+}
+
+.event p {
+font-size: 13px;
+color: #777;
+min-height: 42px;
+}
+
+.event-meta {
+margin-top: 16px;
+padding-top: 14px;
+border-top: 1px solid #f0e8e1;
+display: flex;
+flex-direction: column;
+gap: 7px;
+}
+
+.event-meta-item {
+display: flex;
+align-items: center;
+gap: 8px;
+color: #666;
+font-size: 12px;
+}
+
+.event-meta-item span:first-child {
+width: 25px;
+height: 25px;
+border-radius: 7px;
+background: #fff5ec;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.event-button {
+width: 100%;
+border: none;
+background: #754725;
+color: white;
+padding: 11px;
+margin-top: 17px;
+border-radius: 9px;
+font-size: 12px;
+font-weight: 600;
+cursor: pointer;
+transition:
+background .25s ease,
+transform .25s ease;
+}
+
+.event-button:hover {
+background: #5f381d;
+transform: translateY(-1px);
+}
+
+/* ================= LOADING ================= */
+
+.loading {
+grid-column: 1 / -1;
+text-align: center;
+padding: 70px 20px;
+color: #777;
+}
+
+.loader {
+width: 38px;
+height: 38px;
+margin: 0 auto 15px;
+border: 3px solid #f0dfd0;
+border-top-color: #754725;
+border-radius: 50%;
+animation: spin .8s linear infinite;
+}
+
+.empty-state,
+.error-state {
+grid-column: 1 / -1;
+text-align: center;
+padding: 70px 20px;
+border: 1px dashed #decbbb;
+border-radius: 16px;
+background: #fffaf6;
+}
+
+.empty-state-icon,
+.error-state-icon {
+font-size: 40px;
+margin-bottom: 10px;
+}
+
+.empty-state h3,
+.error-state h3 {
+color: #2d241f;
+margin-bottom: 5px;
+}
+
+.empty-state p,
+.error-state p {
+color: #777;
+font-size: 13px;
+}
+
+/* ================= CTA ================= */
+
+.events-cta {
+margin-top: 65px;
+border-radius: 20px;
+padding: 42px;
+text-align: center;
+color: white;
+background:
+radial-gradient(circle at 15% 30%, rgba(255,255,255,.08), transparent 25%),
+radial-gradient(circle at 85% 70%, rgba(255,255,255,.08), transparent 25%),
+#2e241e;
+position: relative;
+overflow: hidden;
+}
+
+.events-cta::before {
+content: "✦";
+position: absolute;
+font-size: 120px;
+color: rgba(255,255,255,.025);
+right: 50px;
+top: -25px;
+}
+
+.events-cta h2 {
+font-size: 26px;
+margin-bottom: 8px;
+}
+
+.events-cta p {
+color: #c9bdb5;
+font-size: 13px;
+margin-bottom: 20px;
+}
+
+.cta-button {
+display: inline-block;
+padding: 11px 20px;
+border-radius: 9px;
+background: #fff;
+color: #754725;
+text-decoration: none;
+font-size: 13px;
+font-weight: 700;
+transition: transform .25s ease, background .25s ease;
+}
+
+.cta-button:hover {
+transform: translateY(-2px);
+background: #fff5ec;
+}
+
+/* ================= MODAL ================= */
+
+.modal {
+position: fixed;
+inset: 0;
+z-index: 2000;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
+background: rgba(30,20,15,.65);
+backdrop-filter: blur(7px);
+-webkit-backdrop-filter: blur(7px);
+opacity: 0;
+visibility: hidden;
+transition: opacity .3s ease, visibility .3s ease;
+}
+
+.modal.active {
+opacity: 1;
+visibility: visible;
+}
+
+.modal-box {
+width: 100%;
+max-width: 620px;
+max-height: 90vh;
+overflow-y: auto;
+background: white;
+border-radius: 20px;
+box-shadow: 0 30px 80px rgba(0,0,0,.25);
+transform: translateY(25px) scale(.97);
+transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.modal.active .modal-box {
+transform: translateY(0) scale(1);
+}
+
+.modal-image {
+height: 260px;
+overflow: hidden;
+position: relative;
+}
+
+.modal-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.modal-content {
+padding: 28px;
+}
+
+.modal-date {
+color: #a8612d;
+font-size: 11px;
+font-weight: bold;
+text-transform: uppercase;
+}
+
+.modal-content h2 {
+color: #2d241f;
+font-size: 27px;
+margin: 5px 0 12px;
+}
+
+.modal-content p {
+color: #666;
+font-size: 14px;
+margin-bottom: 20px;
+}
+
+.modal-details {
+background: #fff8f2;
+border-radius: 13px;
+padding: 15px;
+}
+
+.modal-detail {
+display: flex;
+gap: 10px;
+align-items: center;
+padding: 7px 0;
+color: #555;
+font-size: 13px;
+}
+
+.modal-detail strong {
+color: #2d241f;
+}
+
+.modal-close {
+position: absolute;
+top: 15px;
+right: 15px;
+z-index: 5;
+width: 36px;
+height: 36px;
+border: none;
+border-radius: 50%;
+background: rgba(255,255,255,.92);
+color: #754725;
+font-size: 19px;
+cursor: pointer;
+box-shadow: 0 4px 15px rgba(0,0,0,.12);
+transition: transform .2s ease;
+}
+
+.modal-close:hover {
+transform: rotate(90deg);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+background: #241c17;
+color: #ddd;
+padding: 45px 20px 25px;
+}
+
+.footer-container {
+max-width: 1100px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+gap: 30px;
+}
+
+.footer-brand h3 {
+color: white;
+margin-bottom: 7px;
+}
+
+.footer-brand p {
+color: #aaa;
+font-size: 12px;
+max-width: 330px;
+}
+
+.footer-links {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+.footer-links a {
+color: #bbb;
+text-decoration: none;
+font-size: 13px;
+transition: color .2s ease;
+}
+
+.footer-links a:hover {
+color: #e6a26d;
+}
+
+.footer-bottom {
+max-width: 1100px;
+margin: 30px auto 0;
+padding-top: 20px;
+border-top: 1px solid rgba(255,255,255,.1);
+color: #888;
+font-size: 11px;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes heroReveal {
+from {
+opacity: 0;
+transform: translateY(25px);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+}
+
+@keyframes cardReveal {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes spin {
+to {
+transform: rotate(360deg);
+}
+}
+
+@keyframes floatCircle {
+0%, 100% {
+transform: translate(0, 0);
+}
+
+50% {
+    transform: translate(-20px, 20px);
+}
+
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 800px) {
+
+.nav-links {
+    position: absolute;
+    top: 70px;
+    left: 15px;
+    right: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    padding: 15px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links a {
+    padding: 10px;
+}
+
+.menu-btn {
+    display: block;
+}
+
+.hero-container {
+    min-height: 350px;
+    padding: 60px 20px 75px;
+}
+
+.events {
+    grid-template-columns: 1fr;
+}
+
+.section {
+    padding: 65px 20px;
+}
+
+.events-cta {
+    padding: 32px 20px;
+}
+
+.footer-container {
+    flex-direction: column;
+}
+
+
+}
+
+@media(max-width: 500px) {
+
+.logo-text {
+    font-size: 16px;
+}
+
+.logo-text span {
+    font-size: 9px;
+}
+
+.hero h1 {
+    font-size: 42px;
+}
+
+.hero p {
+    font-size: 15px;
+}
+
+.section-heading h2 {
+    font-size: 29px;
+}
+
+.modal-image {
+    height: 210px;
+}
+
+.modal-content {
+    padding: 22px;
+}
+
+
+}
+
+/* Accessibility */
+
+@media(prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+animation-duration: .01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: .01ms !important;
+scroll-behavior: auto !important;
+}
+}
+</style>
+
+</head> <body> <!-- ================= NAVBAR ================= --> <header class="navbar">
+<div class="nav-container">
+
+    <a href="/" class="logo">
+
+        <div class="logo-icon">🏠</div>
+
+        <div class="logo-text">
+            Shree Ravechi Dham 3
+            <span>Our Community</span>
+        </div>
+
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#notices">Notices</a>
+        <a href="#events" class="active">Events</a>
+        <a href="/#gallery">Gallery</a>
+        <a href="/#contact" class="nav-btn">Contact</a>
+
+    </nav>
+
+    <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open navigation menu">
+        ☰
+    </button>
+
+</div>
+
+</header> <!-- ================= HERO ================= --> <section class="hero">
+<div class="hero-container">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            📅 Community life
+        </div>
+
+        <h1>
+            Events at
+            <span>Ravechi Dham 3</span>
+        </h1>
+
+        <p>
+            Celebrate together, connect with your neighbors,
+            and be part of the moments that make our community special.
+        </p>
+
+    </div>
+
+</div>
+
+</section> <!-- ================= EVENTS ================= --> <main class="events-section" id="events">
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="small">What's happening</div>
+
+        <h2>Upcoming Events</h2>
+
+        <p>
+            Stay updated with celebrations, gatherings and
+            activities happening in our society.
+        </p>
+
+    </div>
+
+    <div class="events" id="eventsContainer">
+
+        <div class="loading">
+
+            <div class="loader"></div>
+
+            <p>Loading community events...</p>
+
+        </div>
+
+    </div>
+
+    <div class="events-cta">
+
+        <h2>Let's celebrate together ✨</h2>
+
+        <p>
+            Community is about coming together and creating memories.
+        </p>
+
+        <a href="/" class="cta-button">
+            Back to Community →
+        </a>
+
+    </div>
+
+</section>
+
+</main> <!-- ================= EVENT MODAL ================= --> <div class="modal" id="eventModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="closeModalOnOutside(event)">
+<div class="modal-box">
+
+    <div class="modal-image">
+
+        <button
+            class="modal-close"
+            onclick="closeModal()"
+            aria-label="Close event details">
+            ×
+        </button>
+
+        <img
+            id="modalImage"
+            src=""
+            alt="">
+
+    </div>
+
+    <div class="modal-content">
+
+        <div class="modal-date" id="modalDate"></div>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+        <div class="modal-details">
+
+            <div class="modal-detail">
+                <span>🕐</span>
+                <strong id="modalTime"></strong>
+            </div>
+
+            <div class="modal-detail">
+                <span>📍</span>
+                <strong id="modalLocation"></strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div> <!-- ================= FOOTER ================= --> <footer>
+<div class="footer-container">
+
+    <div class="footer-brand">
+
+        <h3>Shree Ravechi Dham 3</h3>
+
+        <p>
+            A community website for residents,
+            announcements, events and important information.
+        </p>
+
+    </div>
+
+    <div class="footer-links">
+
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#notices">Notices</a>
+        <a href="#events">Events</a>
+        <a href="/#gallery">Gallery</a>
+        <a href="/#contact">Contact</a>
+
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+    © 2026 Shree Ravechi Dham 3 • Community Website
+</div>
+
+</footer> <!-- ================= JAVASCRIPT ================= --> <script>
+
+/* ================= NAVIGATION ================= */
+
+function toggleMenu() {
+document.getElementById("navLinks").classList.toggle("active");
+}
+
+/* ================= EVENTS ================= */
+
+const eventsContainer = document.getElementById("eventsContainer");
+
+let eventsData = [];
+
+/*
+Safely escape text before inserting it into HTML.
+*/
+function escapeHTML(value) {
+
+return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+
+}
+
+/*
+Try to convert the date from events.js
+into a real JavaScript Date.
+
+Examples:
+"27 August 2026"
+"September 15, 2026"
+
+
+*/
+function parseEventDate(dateString) {
+
+if (!dateString) {
+    return null;
+}
+
+const date = new Date(dateString);
+
+if (Number.isNaN(date.getTime())) {
+    return null;
+}
+
+return date;
+
+
+}
+
+/*
+Determines whether an event is upcoming.
+
+Month-only dates such as:
+"October 2026"
+
+are treated as the first day of that month.
+
+
+*/
+function isUpcoming(event) {
+
+const date = parseEventDate(event.date);
+
+if (!date) {
+    return true;
+}
+
+const today = new Date();
+
+today.setHours(0, 0, 0, 0);
+date.setHours(23, 59, 59, 999);
+
+return date >= today;
+
+
+}
+
+/*
+Format event dates nicely.
+*/
+function formatDate(dateString) {
+
+const date = parseEventDate(dateString);
+
+if (!date) {
+    return dateString || "Date to be announced";
+}
+
+return date.toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+});
+
+
+}
+
+/*
+Render all events.
+*/
+function renderEvents(events) {
+
+eventsContainer.innerHTML = "";
+
+if (!Array.isArray(events) || events.length === 0) {
+
+    eventsContainer.innerHTML = `
+        <div class="empty-state">
+            <div class="empty-state-icon">📅</div>
+            <h3>No upcoming events</h3>
+            <p>
+                There are currently no community events to display.
+            </p>
+        </div>
+    `;
+
+    return;
+}
+
+/*
+    Sort events by date when possible.
+    Events without valid dates remain at the end.
+*/
+
+const sortedEvents = [...events].sort((a, b) => {
+
+    const dateA = parseEventDate(a.date);
+    const dateB = parseEventDate(b.date);
+
+    if (!dateA && !dateB) return 0;
+    if (!dateA) return 1;
+    if (!dateB) return -1;
+
+    return dateA - dateB;
+
+});
+
+sortedEvents.forEach((event, index) => {
+
+    const upcoming = isUpcoming(event);
+
+    const card = document.createElement("article");
+
+    card.className = `event ${index === 0 && upcoming ? "featured" : ""}`;
+
+    card.style.animationDelay = `${index * 100}ms`;
+
+    const safeImage = event.image
+        ? escapeHTML(event.image)
+        : "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80";
+
+    card.innerHTML = `
+
+        <div class="event-image">
+
+            <img
+                src="${safeImage}"
+                alt="${escapeHTML(event.title || "Community event")}"
+                loading="lazy"
+                onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80';">
+
+        </div>
+
+        <div class="event-body">
+
+            <div class="event-date">
+                📅 ${escapeHTML(formatDate(event.date))}
+            </div>
+
+            <h3>
+                ${escapeHTML(event.title || "Community Event")}
+            </h3>
+
+            <p>
+                ${escapeHTML(
+                    event.description ||
+                    "Join us for this community event."
+                )}
+            </p>
+
+            <div class="event-meta">
+
+                <div class="event-meta-item">
+                    <span>🕐</span>
+                    <span>
+                        ${escapeHTML(event.time || "Time to be announced")}
+                    </span>
+                </div>
+
+                <div class="event-meta-item">
+                    <span>📍</span>
+                    <span>
+                        ${escapeHTML(event.location || "Location to be announced")}
+                    </span>
+                </div>
+
+            </div>
+
+            <button
+                class="event-button"
+                onclick="openEvent(${event.id})">
+                View Event Details →
+            </button>
+
+        </div>
+    `;
+
+    eventsContainer.appendChild(card);
+
+});
+
+
+}
+
+/* ================= MODAL ================= */
+
+const modal = document.getElementById("eventModal");
+
+function openEvent(id) {
+
+const event = eventsData.find(item => item.id === id);
+
+if (!event) {
+    return;
+}
+
+const fallbackImage =
+    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80";
+
+document.getElementById("modalImage").src =
+    event.image || fallbackImage;
+
+document.getElementById("modalImage").alt =
+    event.title || "Community event";
+
+document.getElementById("modalDate").textContent =
+    formatDate(event.date);
+
+document.getElementById("modalTitle").textContent =
+    event.title || "Community Event";
+
+document.getElementById("modalDescription").textContent =
+    event.description || "Join us for this community event.";
+
+document.getElementById("modalTime").textContent =
+    event.time || "Time to be announced";
+
+document.getElementById("modalLocation").textContent =
+    event.location || "Location to be announced";
+
+modal.classList.add("active");
+
+document.body.style.overflow = "hidden";
+
+
+}
+
+function closeModal() {
+
+modal.classList.remove("active");
+
+document.body.style.overflow = "";
+
+
+}
+
+function closeModalOnOutside(event) {
+
+if (event.target === modal) {
+    closeModal();
+}
+
+
+}
+
+document.addEventListener("keydown", function(event) {
+
+if (event.key === "Escape") {
+    closeModal();
+}
+
+
+});
+
+/* ================= LOAD EVENTS.JS ================= */
+
+/*
+events.js must contain:
+
+const events = [
+    ...
+];
+
+This page loads that file dynamically.
+
+
+*/
+
+async function loadEvents() {
+
+try {
+
+    /*
+        Add a cache-busting query so browsers don't
+        unnecessarily show an old version after events.js
+        has been updated.
+    */
+
+    const response = await fetch(
+        `/static/js/events.js?v=${Date.now()}`
+    );
+
+    if (!response.ok) {
+        throw new Error("Unable to load events.js");
+    }
+
+    const javascript = await response.text();
+
+    /*
+        Extract the events array from events.js.
+
+        This supports your current format:
+
+        const events = [
+            {...},
+            {...}
+        ];
+    */
+
+    const match = javascript.match(
+        /const\s+events\s*=\s*(\[[\s\S]*?\])\s*;?/
+    );
+
+    if (!match) {
+        throw new Error(
+            "Could not find the events array in events.js"
+        );
+    }
+
+    /*
+        Convert the JavaScript array into data.
+
+        Your current events.js contains plain data only,
+        so this is sufficient for that format.
+    */
+
+    eventsData = Function(
+        `"use strict"; return (${match[1]});`
+    )();
+
+    renderEvents(eventsData);
+
+} catch (error) {
+
+    console.error("Events loading error:", error);
+
+    eventsContainer.innerHTML = `
+
+        <div class="error-state">
+
+            <div class="error-state-icon">⚠️</div>
+
+            <h3>Unable to load events</h3>
+
+            <p>
+                Please try refreshing the page.
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+}
+
+/* Start loading events */
+loadEvents();
+
+</script> </body> </html>
