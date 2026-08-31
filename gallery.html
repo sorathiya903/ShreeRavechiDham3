@@ -373,22 +373,28 @@
 </head>
 
 <body>
+<header class="navbar">
+    <div class="nav-container">
 
-<header>
-    <div class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">🏠</div>
 
-        <div class="logo">
-            Shree Ravechi <span>Dham 3</span>
-        </div>
+            <div class="logo-text">
+                Shree Ravechi Dham 3
+                <span>Our Community</span>
+            </div>
+        </a>
 
-        <nav>
+        <nav class="nav-links" id="navLinks">
             <a href="/">Home</a>
-            <a href="/events">Events</a>
-           <a href="/notice">Notice</a>
-             <a href="/gallery" class="active">Gallery</a>
             <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+            <a href="/notice">Notices</a>
+            <a href="/events">Events</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/contact" class="nav-btn">Contact</a>
         </nav>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
     </div>
 </header>
