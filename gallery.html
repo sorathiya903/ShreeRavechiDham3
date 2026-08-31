@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | Ravachi Dham 3</title>
+
+    <meta
+        name="description"
+        content="Explore photos and memories from Ravachi Dham 3."
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffaf5;
+            color: #222;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #eee2d8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #7b4b2a;
+        }
+
+        .logo span {
+            color: #d97706;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #d97706;
+        }
+
+        nav a.active {
+            color: #a6531b;
+            font-weight: bold;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+            background: linear-gradient(
+                180deg,
+                #fff7ed,
+                #fffaf5
+            );
+        }
+
+        .hero small {
+            color: #d97706;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 12px 0;
+            color: #3f2a1d;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: auto;
+            color: #777;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* FILTERS */
+
+        .filters {
+            max-width: 1100px;
+            margin: 10px auto 30px;
+            padding: 0 20px;
+
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            border: 1px solid #e5d5c7;
+            background: white;
+            color: #6b5140;
+
+            padding: 9px 18px;
+            border-radius: 30px;
+
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: #d97706;
+            color: #d97706;
+        }
+
+        .filter-btn.active {
+            background: #d97706;
+            color: white;
+            border-color: #d97706;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px 70px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+
+            border: 1px solid #eee2d8;
+
+            box-shadow: 0 4px 15px rgba(80, 50, 30, 0.06);
+
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(80, 50, 30, 0.12);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-info {
+            padding: 17px;
+        }
+
+        .gallery-info h3 {
+            margin: 0 0 7px;
+            font-size: 18px;
+            color: #3f2a1d;
+        }
+
+        .category {
+            display: inline-block;
+            background: #fff1df;
+            color: #a6531b;
+
+            padding: 5px 10px;
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* EMPTY */
+
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px;
+            color: #888;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #3f2a1d;
+            color: #eee;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer .footer-logo {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #cfc3bb;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .navbar {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            nav {
+                gap: 9px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-image {
+                height: 240px;
+            }
+
+            .hero {
+                padding: 50px 20px 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            Ravachi <span>Dham 3</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="hero">
+
+    <small>Our Community</small>
+
+    <h1>Gallery</h1>
+
+    <p>
+        Explore moments, celebrations and places
+        from the Ravachi Dham 3 community.
+    </p>
+
+</section>
+
+
+<div class="filters" id="filters">
+    <button class="filter-btn active" data-category="All">
+        All
+    </button>
+</div>
+
+
+<section class="gallery" id="galleryContainer"></section>
+
+
+<footer>
+
+    <div class="footer-logo">
+        Ravachi Dham 3
+    </div>
+
+    <p>
+        Our community, our home.
+    </p>
+
+    <p style="margin-top:12px;">
+        © 2026 Ravachi Dham 3
+    </p>
+
+</footer>
+
+
+<script src="gallery.js"></script>
+
+<script>
+
+const galleryContainer =
+    document.getElementById("galleryContainer");
+
+const filtersContainer =
+    document.getElementById("filters");
+
+
+function getCategories() {
+
+    const categories = [
+        ...new Set(
+            gallery.map(item => item.category)
+        )
+    ];
+
+    categories.forEach(category => {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "filter-btn";
+
+        button.textContent = category;
+
+        button.dataset.category = category;
+
+        filtersContainer.appendChild(button);
+
+    });
+}
+
+
+function displayGallery(category = "All") {
+
+    galleryContainer.innerHTML = "";
+
+    const filtered =
+        category === "All"
+            ? gallery
+            : gallery.filter(
+                item => item.category === category
+            );
+
+
+    if (filtered.length === 0) {
+
+        galleryContainer.innerHTML = `
+            <div class="empty">
+                No photos available yet.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    filtered.forEach(item => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "gallery-card";
+
+        card.innerHTML = `
+
+            <img
+                class="gallery-image"
+                src="${item.image}"
+                alt="${item.title}"
+                loading="lazy"
+            >
+
+            <div class="gallery-info">
+
+                <h3>${item.title}</h3>
+
+                <span class="category">
+                    ${item.category}
+                </span>
+
+            </div>
+        `;
+
+        galleryContainer.appendChild(card);
+
+    });
+
+}
+
+
+/* FILTER CLICK */
+
+filtersContainer.addEventListener(
+    "click",
+    function(e) {
+
+        if (!e.target.classList.contains("filter-btn"))
+            return;
+
+        document
+            .querySelectorAll(".filter-btn")
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+        e.target.classList.add("active");
+
+        displayGallery(
+            e.target.dataset.category
+        );
+
+    }
+);
+
+
+/* INITIALIZE */
+
+getCategories();
+
+displayGallery();
+
+</script>
+
+</body>
+  </html>
