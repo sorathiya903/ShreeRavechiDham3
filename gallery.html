@@ -233,19 +233,105 @@
         }
 
         /* MOBILE */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eee;
+}
 
+.nav-container {
+    max-width: 1180px;
+    margin: auto;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: #222;
+    min-width: 0;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 10px;
+    background: #f2e5d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8a542f;
+    font-size: 21px;
+}
+
+.logo-text {
+    font-size: 19px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.logo-text span {
+    display: block;
+    color: #a8612d;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #a8612d;
+}
+
+.nav-btn {
+    background: #754725;
+    color: white !important;
+    padding: 9px 17px;
+    border-radius: 8px;
+}
+
+.nav-btn:hover {
+    background: #5f381d;
+}
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 25px;
+    cursor: pointer;
+    color: #754725;
+    padding: 5px;
+        }
         @media (max-width: 800px) {
             .gallery {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            nav {
-                gap: 12px;
-            }
-
-            nav a {
-                font-size: 13px;
-            }
 
             .hero h1 {
                 font-size: 34px;
@@ -253,22 +339,7 @@
         }
 
         @media (max-width: 550px) {
-            .navbar {
-                padding: 15px;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            nav {
-                gap: 9px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
+            
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -376,14 +447,14 @@
 <header class="navbar">
     <div class="nav-container">
 
-        <a href="#" class="logo">
+        <div class="logo">
             <div class="logo-icon">🏠</div>
 
             <div class="logo-text">
                 Shree Ravechi Dham 3
                 <span>Our Community</span>
             </div>
-        </a>
+        </div>
 
         <nav class="nav-links" id="navLinks">
             <a href="/">Home</a>
