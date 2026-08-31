@@ -9,7 +9,7 @@ const events = [
         description: "Janmasthami Celebration at Ravachi Dham 3."
     },
     {
-        id: 1,
+        id: 3,
         title: "Ganesh Chaturthi",
         date: "14 September 2026",
         time: "7:00 PM",
